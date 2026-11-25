@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIREBITE — Mazali ta'm, tezkor yetkazib berish!</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Top Promo Bar -->
+    <div class="top-promo-bar text-center py-2 px-3">
+        <span class="badge bg-warning text-dark fw-bold me-2">AKSIYA</span>
+        <span>100 000 so'mdan yuqori buyurtmalarga yetkazib berish <strong>BEPUL!</strong> Promo kod: <code class="text-warning fw-bold">FIRE2026</code> (-10%)</span>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top main-navbar">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="#home">
+                <div class="brand-icon"><i class="bi bi-fire"></i></div>
+                <span class="brand-text">FIRE<span class="text-warning">BITE</span></span>
+            </a>
+
+            <div class="d-flex align-items-center gap-2 order-lg-3">
+                <!-- Phone Quick Call -->
+                <a href="tel:+998712000000" class="btn btn-outline-light btn-sm d-none d-md-inline-flex align-items-center gap-1 rounded-pill px-3">
+                    <i class="bi bi-telephone-fill text-warning"></i> 71 200-00-00
+                </a>
+
+                <!-- Orders History Button -->
+                <button class="btn btn-dark-glass position-relative" data-bs-toggle="modal" data-bs-target="#ordersHistoryModal" title="Buyurtmalar tarixi">
+                    <i class="bi bi-receipt"></i>
+                    <span id="ordersCountBadge" class="badge rounded-pill bg-secondary badge-float">0</span>
+                </button>
+
+                <!-- Wishlist Button -->
+                <button class="btn btn-dark-glass position-relative" data-bs-toggle="offcanvas" data-bs-target="#wishlistOffcanvas" title="Sevimlilar">
+                    <i class="bi bi-heart-fill text-danger"></i>
+                    <span id="wishlistCount" class="badge rounded-pill bg-warning text-dark badge-float">0</span>
+                </button>
+
+                <!-- Cart Button -->
+                <button class="btn btn-danger d-flex align-items-center gap-2 rounded-pill px-3 py-2 fw-bold shadow-sm" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas">
+                    <i class="bi bi-bag-fill"></i>
+                    <span class="d-none d-sm-inline">Savat</span>
+                    <span id="cartCount" class="badge bg-warning text-dark rounded-pill">0</span>
+                </button>
+
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse order-lg-2" id="navbarNav">
+                <ul class="navbar-nav mx-auto gap-lg-3">
+                    <li class="nav-item"><a class="nav-link active" href="#home">Bosh sahifa</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#combos">Combo setlar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#menu">Menyu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#promos">Chegirmalar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">Biz haqimizda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Aloqa</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section d-flex align-items-center">
+        <div class="container py-5">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6 text-white">
+                    <div class="d-inline-flex align-items-center gap-2 bg-dark-glass px-3 py-2 rounded-pill mb-3 border border-warning border-opacity-25">
+                        <span class="pulse-dot"></span>
+                        <span class="small fw-semibold text-warning">25-35 daqiqada issiq holda yetkazamiz!</span>
+                    </div>
+                    <h1 class="display-3 fw-black mb-3 hero-title">
+                        Mazali ta'm, <span class="text-warning">tezkor</span> yetkazib berish!
+                    </h1>
+                    <p class="lead text-light opacity-75 mb-4">
+                        100% halol mol go'shti, yangi pishirilgan bulochkalar va maxsus FIREBITE sousi. Har bir luqmada haqiqiy lazzatni his eting!
+                    </p>
+                    <div class="d-flex flex-wrap gap-3 mb-5">
+                        <a href="#menu" class="btn btn-danger btn-lg rounded-pill px-4 py-3 fw-bold shadow-lg hero-btn">
+                            <i class="bi bi-fire me-2"></i>Buyurtma berish
+                        </a>
+                        <a href="#combos" class="btn btn-warning btn-lg rounded-pill px-4 py-3 fw-bold text-dark">
+                            <i class="bi bi-box2-heart-fill me-2"></i>Combo tanlash
+                        </a>
+                    </div>
+                    <div class="row g-3 pt-2 border-top border-secondary border-opacity-25">
+                        <div class="col-4">
+                            <h4 class="fw-black text-warning mb-0">30 daq</h4>
+                            <small class="text-light opacity-75">O'rtacha yetkazish</small>
+                        </div>
+                        <div class="col-4">
+                            <h4 class="fw-black text-warning mb-0">4.9 ★</h4>
+                            <small class="text-light opacity-75">12,000+ mijozlar</small>
+                        </div>
+                        <div class="col-4">
+                            <h4 class="fw-black text-warning mb-0">100%</h4>
+                            <small class="text-light opacity-75">Halol va yangi</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center position-relative">
+                    <div class="hero-image-wrapper">
+                        <div class="hero-glow"></div>
+                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=900&q=80" alt="Double Fire Burger" class="img-fluid rounded-4 shadow-lg hero-img">
+                        <div class="floating-badge badge-price bg-warning text-dark shadow-lg">
+                            <small class="d-block fw-bold text-uppercase">Hit mahsulot</small>
+                            <span class="fs-4 fw-black">42 000 so'm</span>
+                        </div>
+                        <div class="floating-badge badge-delivery bg-dark text-white border border-danger shadow-lg">
+                            <i class="bi bi-lightning-charge-fill text-warning fs-4"></i>
+                            <div class="text-start">
+                                <div class="fw-bold small">Issiq yetkazish</div>
+                                <div class="text-warning x-small">Termo-sumkalarda</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Sellers Strip -->
+    <section class="py-5 bg-white border-bottom">
+        <div class="container">
+            <div class="d-flex flex-wrap justify-content-between align-items-end mb-4">
+                <div>
+                    <span class="text-danger fw-bold text-uppercase small ls-1">Mijozlar tanlovi</span>
+                    <h2 class="fw-black mb-0">Eng ko'p sotiladigan mahsulotlar 🔥</h2>
+                </div>
+                <a href="#menu" class="btn btn-outline-dark rounded-pill fw-semibold">Barchasini ko'rish <i class="bi bi-arrow-right ms-1"></i></a>
+            </div>
+            <div class="row g-4" id="bestsellersContainer">
+                <!-- JS orqali to'ldiriladi -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Promos / Discounts -->
+    <section id="promos" class="py-5 bg-dark text-white">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="badge bg-warning text-dark fw-bold px-3 py-2 rounded-pill mb-2">MAXSUS TAKLIFLAR</span>
+                <h2 class="fw-black display-6">Qaynoq Chegirmalar va Aksiyalar</h2>
+                <p class="text-light opacity-75">Har kuni tejamkor narxlarda mazali taomlardan bahramand bo'ling</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="promo-card promo-red p-4 rounded-4 h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <span class="badge bg-warning text-dark fw-bold mb-3">-10% CHEGIRMA</span>
+                            <h3 class="fw-black">Birinchi buyurtma uchun!</h3>
+                            <p class="opacity-90">Savatda <strong class="text-warning">FIRE2026</strong> promo kodini kiriting va umumiy summadan 10% chegirmaga ega bo'ling.</p>
+                        </div>
+                        <button class="btn btn-light text-danger fw-bold rounded-pill align-self-start copy-promo-btn" data-code="FIRE2026">
+                            <i class="bi bi-clipboard me-1"></i> Kodni nusxalash: FIRE2026
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="promo-card promo-yellow p-4 rounded-4 h-100 text-dark d-flex flex-column justify-content-between">
+                        <div>
+                            <span class="badge bg-danger text-white fw-bold mb-3">BEPUL YETKAZISH</span>
+                            <h3 class="fw-black">100 000 so'mdan oshsa</h3>
+                            <p>Istalgan manzilga yetkazib berish xizmati mutlaqo bepul! Do'stlar bilan buyurtma bering.</p>
+                        </div>
+                        <a href="#menu" class="btn btn-dark text-warning fw-bold rounded-pill align-self-start">
+                            Menyuga o'tish <i class="bi bi-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="promo-card promo-black p-4 rounded-4 h-100 border border-warning border-opacity-50 d-flex flex-column justify-content-between">
+                        <div>
+                            <span class="badge bg-danger text-white fw-bold mb-3">COMBO FOYDA</span>
+                            <h3 class="fw-black">Combo setlarda 25% gacha tejash</h3>
+                            <p class="opacity-75">Alohida sotib olgandan ko'ra tayyor Combo setlar ancha arzon va to'yimli.</p>
+                        </div>
+                        <a href="#combos" class="btn btn-warning text-dark fw-bold rounded-pill align-self-start">
+                            Combolarni ko'rish <i class="bi bi-fire ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Combo Section -->
+    <section id="combos" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="text-danger fw-bold text-uppercase small">Tejamkor va to'yimli</span>
+                <h2 class="fw-black display-6">Maxsus COMBO Setlar 🍱</h2>
+                <p class="text-muted">O'zingiz va yaqinlaringiz uchun tayyor jamlanmalar — 25% gacha chegirma bilan</p>
+            </div>
+            <div class="row g-4" id="combosContainer">
+                <!-- JS orqali to'ldiriladi -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Menu Section -->
+    <section id="menu" class="py-5 bg-white">
+        <div class="container">
+            <div class="text-center mb-4">
+                <span class="text-danger fw-bold text-uppercase small">To'liq assortiment</span>
+                <h2 class="fw-black display-6">Bizning Menyu 🍔</h2>
+                <p class="text-muted">Barcha taomlar buyurtma tushgan zahoti yangidan tayyorlanadi</p>
+            </div>
+
+            <!-- Search & Sort Controls -->
+            <div class="row g-3 mb-4 align-items-center bg-light p-3 rounded-4 border">
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <span class="input-group-text bg-white border-end-0 text-danger"><i class="bi bi-search"></i></span>
+                        <input type="text" id="searchInput" class="form-control border-start-0 ps-0" placeholder="Taom nomi yoki tarkibi bo'yicha qidirish (masalan: pishloq, tovuq)...">
+                        <button class="btn btn-outline-secondary d-none" id="clearSearchBtn" type="button"><i class="bi bi-x-lg"></i></button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <select id="sortSelect" class="form-select">
+                        <option value="default">Saralash: Odatiy</option>
+                        <option value="popular">Mashhurligi bo'yicha</option>
+                        <option value="price-asc">Narxi: Arzondan qimmatga</option>
+                        <option value="price-desc">Narxi: Qimmatdan arzonga</option>
+                    </select>
+                </div>
+                <div class="col-md-3 text-md-end">
+                    <span class="text-muted small">Topildi: <strong id="productsFoundCount" class="text-dark">0</strong> ta mahsulot</span>
+                </div>
+            </div>
+
+            <!-- Category Tabs -->
+            <div class="category-scroll-wrapper mb-4">
+                <div class="d-flex gap-2 pb-2" id="categoryFilters">
+                    <button class="btn category-btn active" data-category="all">🍽️ Barchasi</button>
+                    <button class="btn category-btn" data-category="burgers">🍔 Gamburgerlar</button>
+                    <button class="btn category-btn" data-category="hotdogs">🌭 Hot-doglar</button>
+                    <button class="btn category-btn" data-category="pizzas">🍕 Pitsalar</button>
+                    <button class="btn category-btn" data-category="fries">🍟 Fri va gazaklar</button>
+                    <button class="btn category-btn" data-category="chicken">🍗 Tovuq mahsulotlari</button>
+                    <button class="btn category-btn" data-category="lavash">🥪 Sendvich va lavash</button>
+                    <button class="btn category-btn" data-category="drinks">🥤 Ichimliklar</button>
+                    <button class="btn category-btn" data-category="desserts">🍰 Shirinliklar</button>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="row g-4" id="productsContainer">
+                <!-- JS orqali to'ldiriladi -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5 bg-light border-top">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <div class="position-relative">
+                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=900&q=80" alt="FIREBITE Oshxonasi" class="img-fluid rounded-4 shadow">
+                        <div class="bg-danger text-white p-4 rounded-4 shadow position-absolute bottom-0 end-0 m-3">
+                            <h3 class="fw-black mb-0">5+ yil</h3>
+                            <small>Sifat va ishonch tajribasi</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <span class="text-danger fw-bold text-uppercase small">Biz haqimizda</span>
+                    <h2 class="fw-black display-6 mb-3">Nega aynan <span class="text-danger">FIRE</span><span class="text-warning bg-dark px-2 rounded">BITE</span> ni tanlashadi?</h2>
+                    <p class="text-muted mb-4">
+                        FIREBITE — bu shunchaki fast food emas, balki sifatli masalliqlar, mualliflik souslari va zamonaviy tezkor xizmat uyg'unligi. Biz har kuni tongda yangi sabzavotlar va halol go'sht mahsulotlarini qabul qilamiz.
+                    </p>
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <div class="d-flex gap-3 align-items-start">
+                                <div class="feature-icon bg-danger text-white rounded-3"><i class="bi bi-patch-check-fill"></i></div>
+                                <div>
+                                    <h6 class="fw-bold mb-1">100% Halol Sertifikat</h6>
+                                    <p class="small text-muted mb-0">Barcha go'sht mahsulotlari qat'iy nazoratdan o'tadi.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex gap-3 align-items-start">
+                                <div class="feature-icon bg-warning text-dark rounded-3"><i class="bi bi-stopwatch-fill"></i></div>
+                                <div>
+                                    <h6 class="fw-bold mb-1">Tezkor Kuryerlar</h6>
+                                    <p class="small text-muted mb-0">Buyurtmangiz sovib qolmasidan eshigingizda bo'ladi.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex gap-3 align-items-start">
+                                <div class="feature-icon bg-dark text-warning rounded-3"><i class="bi bi-fire"></i></div>
+                                <div>
+                                    <h6 class="fw-bold mb-1">Ochiq Oshxona</h6>
+                                    <p class="small text-muted mb-0">Tozalik va gigiyena eng yuqori darajada.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex gap-3 align-items-start">
+                                <div class="feature-icon bg-danger text-white rounded-3"><i class="bi bi-gift-fill"></i></div>
+                                <div>
+                                    <h6 class="fw-bold mb-1">Doimiy Bonuslar</h6>
+                                    <p class="small text-muted mb-0">Har bir buyurtmada chegirma va maxsus sovg'alar.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Location Section -->
+    <section id="contact" class="py-5 bg-white border-top">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="text-danger fw-bold text-uppercase small">Biz bilan bog'laning</span>
+                <h2 class="fw-black display-6">Manzil va Ish Vaqti 📍</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-5">
+                    <div class="bg-dark text-white p-4 p-md-5 rounded-4 h-100">
+                        <h4 class="fw-bold text-warning mb-4">Aloqa ma'lumotlari</h4>
+                        <div class="d-flex gap-3 mb-4">
+                            <i class="bi bi-geo-alt-fill text-danger fs-4"></i>
+                            <div>
+                                <h6 class="fw-bold mb-1">Bosh filial manzili:</h6>
+                                <p class="text-light opacity-75 mb-0">Toshkent shahri, Chilonzor tumani, Bunyodkor shoh ko'chasi, 15-uy (Mo'ljal: Novza metrosi)</p>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-3 mb-4">
+                            <i class="bi bi-clock-fill text-warning fs-4"></i>
+                            <div>
+                                <h6 class="fw-bold mb-1">Ish vaqti:</h6>
+                                <p class="text-light opacity-75 mb-0">Har kuni: <strong>09:00 dan 02:00 gacha</strong> (Dam olish kunlarisiz)</p>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-3 mb-4">
+                            <i class="bi bi-telephone-fill text-danger fs-4"></i>
+                            <div>
+                                <h6 class="fw-bold mb-1">Call-markaz:</h6>
+                                <p class="mb-1"><a href="tel:+998712000000" class="text-warning text-decoration-none fw-bold fs-5">+998 (71) 200-00-00</a></p>
+                                <p class="mb-0"><a href="tel:+998901234567" class="text-light text-decoration-none">+998 (90) 123-45-67</a></p>
+                            </div>
+                        </div>
+                        <div class="pt-3 border-top border-secondary">
+                            <a href="tel:+998712000000" class="btn btn-danger w-100 py-3 rounded-pill fw-bold">
+                                <i class="bi bi-telephone-outbound-fill me-2"></i>Hoziroq qo'ng'iroq qilish
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="rounded-4 overflow-hidden shadow-sm h-100 min-vh-25 border">
+                        <iframe
+                            src="https://www.openstreetmap.org/export/embed.html?bbox=69.2100%2C41.2800%2C69.2450%2C41.3000&layer=mapnik&marker=41.2900%2C69.2275"
+                            width="100%" height="100%" style="border:0; min-height: 360px;" allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white pt-5 pb-4">
+        <div class="container">
+            <div class="row g-4 pb-4 border-bottom border-secondary border-opacity-25">
+                <div class="col-lg-4">
+                    <a class="navbar-brand d-flex align-items-center gap-2 mb-3" href="#home">
+                        <div class="brand-icon"><i class="bi bi-fire"></i></div>
+                        <span class="brand-text fs-4">FIRE<span class="text-warning">BITE</span></span>
+                    </a>
+                    <p class="text-light opacity-75 small">
+                        Mazali ta'm, tezkor yetkazib berish! Toshkent bo'ylab eng issiq burgerlar, pitsalar va combo setlar.
+                    </p>
+                    <div class="d-flex gap-2 mt-3">
+                        <a href="#contact" class="social-link"><i class="bi bi-telegram"></i></a>
+                        <a href="#contact" class="social-link"><i class="bi bi-instagram"></i></a>
+                        <a href="#contact" class="social-link"><i class="bi bi-facebook"></i></a>
+                        <a href="#contact" class="social-link"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h6 class="fw-bold text-warning mb-3">Bo'limlar</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-2 small">
+                        <li><a href="#home" class="footer-link">Bosh sahifa</a></li>
+                        <li><a href="#combos" class="footer-link">Combo setlar</a></li>
+                        <li><a href="#menu" class="footer-link">Menyu</a></li>
+                        <li><a href="#promos" class="footer-link">Chegirmalar</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <h6 class="fw-bold text-warning mb-3">Kategoriyalar</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-2 small">
+                        <li><a href="#menu" class="footer-link" onclick="filterByCategoryFromFooter('burgers')">Gamburgerlar</a></li>
+                        <li><a href="#menu" class="footer-link" onclick="filterByCategoryFromFooter('pizzas')">Pitsalar</a></li>
+                        <li><a href="#menu" class="footer-link" onclick="filterByCategoryFromFooter('lavash')">Lavash va Sendvich</a></li>
+                        <li><a href="#menu" class="footer-link" onclick="filterByCategoryFromFooter('drinks')">Ichimliklar</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="fw-bold text-warning mb-3">Tezkor buyurtma</h6>
+                    <p class="small text-light opacity-75">Telefon orqali buyurtma berish uchun:</p>
+                    <a href="tel:+998712000000" class="btn btn-outline-warning w-100 rounded-pill fw-bold">
+                        <i class="bi bi-telephone-fill me-2"></i>+998 71 200-00-00
+                    </a>
+                </div>
+            </div>
+            <div class="d-flex flex-wrap justify-content-between align-items-center pt-4 small text-light opacity-50">
+                <span>&copy; 2026 FIREBITE Fast Food. Barcha huquqlar himoyalangan.</span>
+                <span>To'lov turlari: Naqd, Click, Payme, Uzcard, Humo</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Mobile Call & Cart Button -->
+    <a href="tel:+998712000000" class="floating-call-btn d-md-none shadow-lg" title="Qo'ng'iroq qilish">
+        <i class="bi bi-telephone-fill"></i>
+    </a>
+
+    <!-- OFFCANVAS: SHOPPING CART -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas">
+        <div class="offcanvas-header bg-dark text-white">
+            <h5 class="offcanvas-title fw-bold"><i class="bi bi-bag-fill text-warning me-2"></i>Sizning savatingiz</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column">
+            <!-- Cart Items List -->
+            <div id="cartItemsContainer" class="flex-grow-1 overflow-auto pe-1">
+                <!-- JS orqali to'ldiriladi -->
+            </div>
+
+            <!-- Promo Code Input -->
+            <div id="cartFooterSection" class="border-top pt-3 mt-3 d-none">
+                <div class="input-group input-group-sm mb-2">
+                    <input type="text" id="promoCodeInput" class="form-control" placeholder="Promo kod (masalan: FIRE2026)">
+                    <button class="btn btn-dark" type="button" id="applyPromoBtn">Qo'llash</button>
+                </div>
+                <div id="promoMessage" class="small mb-2"></div>
+
+                <div class="bg-light p-3 rounded-3 mb-3">
+                    <div class="d-flex justify-content-between small mb-1">
+                        <span class="text-muted">Mahsulotlar (<span id="cartTotalQty">0</span> ta):</span>
+                        <span id="cartSubtotal" class="fw-semibold">0 so'm</span>
+                    </div>
+                    <div class="d-flex justify-content-between small mb-1 text-success" id="discountRow" style="display: none !important;">
+                        <span>Chegirma:</span>
+                        <span id="cartDiscount">-0 so'm</span>
+                    </div>
+                    <div class="d-flex justify-content-between small mb-2">
+                        <span class="text-muted">Yetkazib berish:</span>
+                        <span id="cartDeliveryFee" class="fw-semibold">15 000 so'm</span>
+                    </div>
+                    <div class="d-flex justify-content-between border-top pt-2 fw-black fs-5">
+                        <span>Jami:</span>
+                        <span id="cartGrandTotal" class="text-danger">0 so'm</span>
+                    </div>
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button class="btn btn-outline-danger btn-sm" id="clearCartBtn" title="Savatni tozalash">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                    <button class="btn btn-danger flex-grow-1 py-2 fw-bold rounded-pill" id="proceedCheckoutBtn">
+                        Buyurtma berish <i class="bi bi-arrow-right ms-1"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- OFFCANVAS: WISHLIST -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="wishlistOffcanvas">
+        <div class="offcanvas-header bg-dark text-white">
+            <h5 class="offcanvas-title fw-bold"><i class="bi bi-heart-fill text-danger me-2"></i>Sevimli taomlar</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body" id="wishlistContainer">
+            <!-- JS orqali to'ldiriladi -->
+        </div>
+    </div>
+
+    <!-- MODAL: CHECKOUT FORM -->
+    <div class="modal fade" id="checkoutModal" tabindex="-1" data-bs-backdrop="static">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content rounded-4 border-0 overflow-hidden">
+                <div class="modal-header bg-dark text-white">
+                    <h5 class="modal-title fw-bold"><i class="bi bi-bag-check-fill text-warning me-2"></i>Buyurtmani rasmiylashtirish</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form id="checkoutForm" novalidate>
+                        <div class="row g-4">
+                            <!-- Left Column: Customer & Address Form -->
+                            <div class="col-lg-7">
+                                <h6 class="fw-bold text-danger text-uppercase mb-3">1. Mijoz ma'lumotlari</h6>
+                                <div class="row g-3 mb-4">
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold">Ism va familiya <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="custName" placeholder="Masalan: Jasur Karimov" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold">Telefon raqami <span class="text-danger">*</span></label>
+                                        <input type="tel" class="form-control" id="custPhone" placeholder="+998 90 123 45 67" required>
+                                    </div>
+                                </div>
+
+                                <h6 class="fw-bold text-danger text-uppercase mb-3">2. Qabul qilish turi</h6>
+                                <div class="row g-3 mb-4">
+                                    <div class="col-6">
+                                        <input type="radio" class="btn-check" name="deliveryType" id="typeDelivery" value="delivery" checked>
+                                        <label class="btn btn-outline-danger w-100 py-3 fw-bold" for="typeDelivery">
+                                            <i class="bi bi-bicycle fs-5 d-block mb-1"></i>Yetkazib berish
+                                        </label>
+                                    </div>
+                                    <div class="col-6">
+                                        <input type="radio" class="btn-check" name="deliveryType" id="typePickup" value="pickup">
+                                        <label class="btn btn-outline-dark w-100 py-3 fw-bold" for="typePickup">
+                                            <i class="bi bi-shop fs-5 d-block mb-1"></i>Olib ketish (0 so'm)
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div id="addressFieldsWrapper">
+                                    <h6 class="fw-bold text-danger text-uppercase mb-3">3. Yetkazib berish manzili</h6>
+                                    <div class="row g-3 mb-3">
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-semibold">Viloyat yoki shahar <span class="text-danger">*</span></label>
+                                            <select class="form-select" id="custRegion" required>
+                                                <option value="Toshkent shahri" selected>Toshkent shahri</option>
+                                                <option value="Toshkent viloyati">Toshkent viloyati</option>
+                                                <option value="Samarqand viloyati">Samarqand viloyati</option>
+                                                <option value="Buxoro viloyati">Buxoro viloyati</option>
+                                                <option value="Farg'ona viloyati">Farg'ona viloyati</option>
+                                                <option value="Andijon viloyati">Andijon viloyati</option>
+                                                <option value="Namangan viloyati">Namangan viloyati</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-semibold">Tuman <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="custDistrict" placeholder="Masalan: Chilonzor tumani" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-semibold">Mahalla <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="custMahalla" placeholder="Masalan: Novza MFY" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-semibold">Ko'cha nomi <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="custStreet" placeholder="Masalan: Bunyodkor ko'chasi" required>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="form-label fw-semibold">Uy raqami <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="custHouse" placeholder="Masalan: 15-uy, 42-xonadon" required>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <label class="form-label fw-semibold">Mo'ljal <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="custLandmark" placeholder="Masalan: 103-maktab yonida yoki Korzinka ro'parasida" required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mt-3">
+                                    <label class="form-label fw-semibold">Qo'shimcha izoh (ixtiyoriy)</label>
+                                    <textarea class="form-control" id="custNote" rows="2" placeholder="Kuryer uchun eslatma, domofon kodi yoki sous bo'yicha istaklar..."></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Right Column: Order Summary Before Confirm -->
+                            <div class="col-lg-5">
+                                <div class="bg-light p-4 rounded-4 border h-100 d-flex flex-column justify-content-between">
+                                    <div>
+                                        <h6 class="fw-bold text-uppercase mb-3 border-bottom pb-2">Buyurtma tarkibi</h6>
+                                        <div id="checkoutSummaryItems" class="mb-3 overflow-auto" style="max-height: 260px;">
+                                            <!-- JS orqali to'ldiriladi -->
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div class="border-top pt-3">
+                                            <div class="d-flex justify-content-between small mb-2">
+                                                <span class="text-muted">Mahsulotlar soni:</span>
+                                                <strong id="checkoutTotalItems">0 ta</strong>
+                                            </div>
+                                            <div class="d-flex justify-content-between small mb-2">
+                                                <span class="text-muted">Mahsulotlar summasi:</span>
+                                                <span id="checkoutSubtotal">0 so'm</span>
+                                            </div>
+                                            <div class="d-flex justify-content-between small mb-2 text-success" id="checkoutDiscountRow">
+                                                <span>Chegirma:</span>
+                                                <span id="checkoutDiscount">-0 so'm</span>
+                                            </div>
+                                            <div class="d-flex justify-content-between small mb-2">
+                                                <span class="text-muted">Yetkazib berish narxi:</span>
+                                                <span id="checkoutDeliveryFee" class="fw-semibold">15 000 so'm</span>
+                                            </div>
+                                            <div class="d-flex justify-content-between align-items-center bg-dark text-white p-3 rounded-3 mt-3">
+                                                <span class="fw-bold">Umumiy to'lov:</span>
+                                                <span id="checkoutGrandTotal" class="fs-4 fw-black text-warning">0 so'm</span>
+                                            </div>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-danger w-100 py-3 rounded-pill fw-bold fs-6 mt-3 shadow" id="confirmOrderBtn">
+                                            <i class="bi bi-check-circle-fill me-2"></i>Buyurtmani tasdiqlash
+                                        </button>
+                                        <p class="text-center text-muted x-small mt-2 mb-0">
+                                            <i class="bi bi-shield-lock me-1"></i>Demo rejim: Buyurtma lokal bazaga saqlanadi va API/Firebase strukturasi tayyor.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: ORDER SUCCESS -->
+    <div class="modal fade" id="orderSuccessModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4 border-0 text-center p-4">
+                <div class="modal-body">
+                    <div class="success-checkmark mx-auto mb-3">
+                        <i class="bi bi-check-lg"></i>
+                    </div>
+                    <span class="badge bg-warning text-dark fw-bold mb-2">DEMO BUYURTMA QABUL QILINDI</span>
+                    <h3 class="fw-black mb-2">Rahmat, <span id="successCustomerName">Mijoz</span>!</h3>
+                    <p class="text-muted small mb-3">
+                        Buyurtmangiz muvaffaqiyatli shakllantirildi (Buyurtma ID: <strong id="successOrderId" class="text-dark">#FB-0000</strong>).
+                    </p>
+                    <div class="bg-light p-3 rounded-3 text-start small mb-4 border">
+                        <div class="mb-1"><strong>Qabul qilish turi:</strong> <span id="successDeliveryType"></span></div>
+                        <div class="mb-1"><strong>Manzil:</strong> <span id="successAddress"></span></div>
+                        <div class="mb-1"><strong>Telefon:</strong> <span id="successPhone"></span></div>
+                        <div class="mb-0"><strong>To'lov summasi:</strong> <span id="successTotal" class="text-danger fw-bold"></span></div>
+                    </div>
+                    <div class="d-flex gap-2 justify-content-center">
+                        <button type="button" class="btn btn-outline-dark rounded-pill px-4" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#ordersHistoryModal">
+                            Buyurtmalarimni ko'rish
+                        </button>
+                        <button type="button" class="btn btn-danger rounded-pill px-4 fw-bold" data-bs-dismiss="modal">
+                            Ajoyib!
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: ORDERS HISTORY (LOCALSTORAGE DEMO) -->
+    <div class="modal fade" id="ordersHistoryModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content rounded-4 border-0">
+                <div class="modal-header bg-dark text-white">
+                    <h5 class="modal-title fw-bold"><i class="bi bi-receipt-cutoff text-warning me-2"></i>Saqlangan buyurtmalar (Demo Storage)</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="ordersHistoryContainer">
+                    <!-- JS orqali to'ldiriladi -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3" id="toastContainer"></div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="index.js"></script>
+</body>
+</html>
